@@ -68,6 +68,9 @@ def pretty_name(name):
 class RelationsList(list):
     _deleted = []
 
+    def save(self, **kwargs):
+        [obj.save(**kwargs) for obj in self]
+
 
 class NestedValidationError(ValidationError):
     """
